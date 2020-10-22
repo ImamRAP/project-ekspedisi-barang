@@ -1,10 +1,16 @@
 <h3>Tambah Data Layanan</h3>
-<form action="?page=act-layanan" method="POST">
+<form action="?page=act-layanan" method="POST" enctype="multipart/form-data">
    <div class="row">
       <div class="col">
          <div class="form-group">
             <label for="layanan">Layanan</label>
             <input type="text" class="form-control" id="layanan" name="layanan">
+         </div>
+      </div>
+      <div class="col">
+         <div class="form-group">
+            <label for="link">Link</label>
+            <input type="text" class="form-control" id="link" name="link">
          </div>
       </div>
    </div>
@@ -22,7 +28,7 @@
       <div class="col-lg-6">
          <div class="form-group">
             <label for="icon">Icon</label>
-            <input type="text" class="form-control" id="icon" name="icon">
+            <input type="file" class="form-control" id="icon" name="icon">
          </div>
       </div>
       <div class="col-lg-6">

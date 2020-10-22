@@ -17,3 +17,36 @@ function tampilNotif()
       unset($_SESSION['notif']);
    }
 }
+
+function restrictedPageAdmin()
+{
+   if (empty($_SESSION['Level'])) {
+      header("Location: ../index.php");
+   } else {
+      if ($_SESSION['Level'] == 'customer') {
+         header("Location: ../index.php");
+      }
+   }
+}
+
+
+function uploadFile($data)
+{
+   if ($data['namaFoto'] <> null) {
+      if (in_array($data['ekstensiFile'], $data['ekstensiBoleh'])) {
+         if ($data['ukuranFile'] < $data['ukuranBoleh']) {
+            $upload = move_uploaded_file($data['fileSementara'], $data['folderUpload'] . '' . $data['namaFilePasDiUpload']);
+
+            if ($upload) {
+               return 'success';
+            }
+         } else {
+            return "notAllowedMaxFiles";
+         }
+      } else {
+         return "notAllowedExtention";
+      }
+   } else {
+      return "noFileUpload";
+   }
+}
